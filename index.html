@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, serif;
+  color: white;
+  text-align: center;
+  background: linear-gradient(135deg, #240016, #8b1647, #ed6b91);
+  overflow-x: hidden;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.heart {
+  font-size: 75px;
+  animation: beat 1s infinite;
+  filter: drop-shadow(0 0 20px #ff8caf);
+}
+
+h1 {
+  font-size: clamp(36px, 8vw, 64px);
+  margin: 18px 0;
+  text-shadow: 0 0 20px #ff91b8;
+}
+
+.subtitle {
+  font-size: 19px;
+  line-height: 1.8;
+  max-width: 520px;
+}
+
+button {
+  border: none;
+  border-radius: 50px;
+  padding: 15px 28px;
+  margin: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #fff0f5;
+  color: #a20d4d;
+  transition: transform .25s;
+  box-shadow: 0 5px 25px #ff9fbd55;
+}
+
+button:hover { transform: scale(1.06); }
+
+.letter {
+  display: none;
+  width: min(100%, 540px);
+  margin-top: 24px;
+  padding: 28px;
+  color: #71223f;
+  background: #fff5f7;
+  border-radius: 20px;
+  line-height: 1.9;
+  font-size: 17px;
+  box-shadow: 0 10px 40px #25001266;
+  animation: appear .8s ease;
+}
+
+.letter.show { display: block; }
+
+.floating {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  animation: floatUp linear forwards;
+  z-index: 0;
+}
+
+footer {
+  margin-top: 35px;
+  font-size: 14px;
+  opacity: .85;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.18); }
+}
+
+@keyframes floatUp {
+  to { transform: translateY(-110vh) rotate(30deg); opacity: 0; }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="heart">❤️</div>
+
+  <h1>رحومتي حبيبه عمري 💕</h1>
+
+  <p class="subtitle">
+    Out of all the people in this world,
+    my heart somehow found you.
+    And if I had a thousand chances to choose,
+    I'd choose you every single time. 🌹
+  </p>
+
+  <button onclick="openLetter()">
+    💌 Open My Heart
+  </button>
+  
+<button onclick="playSong()">
+  🎵 اسمعي أغنيتنا يا حبيبتي ❤️
+</button>
+
+
+
+
+  <div class="letter" id="letter">
+    <h2>To My Favorite Person 💗</h2>
+
+    رحومتي حبيبه عمري, ❤️<br><br>
+
+    
+
+     روحي وأقرب حد لقلبي، رحومتي 🩷
+
+حبيبه ايامي❤️
+بحبك وبحب كل كل تفصيله فيكي 
+اجمل واحلي واحن كتكوته ف حياتي 
+ربنا يخليكي ليا وميحرمني من عيونك ابدا 
+
+كلمه بحبك دي كلمه متوصفش 1‎%‎ من شعوري 
+انتي عندي حاجه اكبر من كدا بكتير 
+بحبك لاخر يوم ف عمري 
+حبيتك وبحبك وهحبك 
+
+مهما اتخانقنا مهما زعلنا من بعض 
+ف الاخر ملناش غير بعض 
+لازم نسامح بعض عشان نكمل 
+انتي ليا انا وبسسسسس
+
+بحبك❤️
+بحبك💖
+بحبك🫀🌙<br><br>
+
+    <strong>I choose you. Always and always. ❤️</strong>
+
+    <h2>Forever Yours 💋</h2>
+  </div>
+
+  <button onclick="surprise()">
+    🎁 One More Surprise
+  </button>
+
+  <p id="surpriseText"></p>
+
+  <footer>
+    Made with hamodek, just for you ❤️
+  </footer>
+</div>
+
+<script>
+    function playSong() {
+  window.open(
+    "https://youtu.be/VTnUSgwfemQ?si=dp-PqGq1MB7kjjRj",
+    "_blank"
+  );
+}
+function openLetter() {
+  document.getElementById("letter").classList.toggle("show");
+}
+
+function surprise() {
+  document.getElementById("surpriseText").innerHTML =
+    "🌹 If kisses were stars, I'd give you the whole sky! 💋❤️";
+  for (let i = 0; i < 30; i++) {
+    setTimeout(createHeart, i * 80);
+  }
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "floating";
+  heart.innerHTML = ["❤️", "💗", "💕", "🌹", "💖"][
+    Math.floor(Math.random() * 5)
+  ];
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (18 + Math.random() * 25) + "px";
+  heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 7000);
+}
+
+setInterval(createHeart, 500);
+</script>
+</body>
+</html>
